@@ -2,7 +2,7 @@
     "use strict";
 
     kintone.events.on([`app.record.index.show`,], (event) => {
-        alert('アラートを出したい');
+        alert('アラートを出せた！            ');
         return event;
     }
     );
