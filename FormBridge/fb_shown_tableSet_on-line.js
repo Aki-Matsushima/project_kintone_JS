@@ -1,7 +1,7 @@
 /*------------------------------------------------------
     フォームブリッジ  JSカスタマイズ
     作成日：2025/05/09
-    更新日：2025/06/20
+    更新日：2025/07/04
 ========================================================
 主な処理内容
 ・入力された値による表示非表示
@@ -20,8 +20,6 @@
   テーブル内フィールドは表示非表示のタイミングで値はリセットされない
 ・フォームブリッジ上でテーブルの行数制限の最小を設定する必要あり
 
-ss
-
 ------------------------------------------------------*/
 
 
@@ -30,6 +28,8 @@ const allHiddenFields = [
 
     //案件情報
     "超概算見積提出期日",
+    "正式見積日は概算見積日から2週間以上空けてください。",
+    "indent正式見積日は概算見積日から2週間以上空けてください。",
     "概算見積提出期日",
     "正式見積提出期日",
     "号口日が検収日より前に設定されています理由を記載ください",
@@ -352,7 +352,7 @@ formBridge.events.on('form.show', function (context) {
             initValues: ["手順数", "手順数"],
         });
 
-    }, 100);
+    }, 150);
 
     return context;
 
@@ -630,6 +630,19 @@ formBridge.events.on('form.field.change.クラウドメンテナンス設計', t
 const rules = [
     {
         type: 'date',
+        fields: ['概算見積提出期日', '正式見積提出期日'],
+        showField: ['正式見積日は概算見積日から2週間以上空けてください。', 'indent正式見積日は概算見積日から2週間以上空けてください。'],
+        condition: (a, b) => {
+            if (!(a instanceof Date) || !(b instanceof Date)) return false;
+
+            const diffInMs = Math.abs(b - a);
+            const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+
+            return diffInDays < 14;  // 14日未満だったら true（＝エラー表示）
+        },
+    },
+    {
+        type: 'date',
         fields: ['号口日_サービスイン', '号口環境_インフラリソース構築日'],
         showField: ['アプリデプロイ日やインフラリソース構築日が号口日と同日です理由を記載ください', 'indentアプリデプロイ日やインフラリソース構築日が号口日と同日です理由を記載ください'],
         condition: (a, b) => a.getTime() === b.getTime(),
@@ -669,6 +682,8 @@ const rules = [
 ]
 
 
+formBridge.events.on('form.field.change.概算見積提出期日', toggleInputVisibility(rules));
+formBridge.events.on('form.field.change.正式見積提出期日', toggleInputVisibility(rules));
 formBridge.events.on('form.field.change.号口日_サービスイン', toggleInputVisibility(rules));
 formBridge.events.on('form.field.change.号口環境_アプリデプロイ日', toggleInputVisibility(rules));
 formBridge.events.on('form.field.change.号口環境_インフラリソース構築日', toggleInputVisibility(rules));
@@ -746,35 +761,35 @@ function formShowFields(fieldCodes) {
    同じ配列に格納
    ドロップダウンと複数選択は非対応
 */
-// function formShowDisabled({ fieldCodes }) {
-//     if (!Array.isArray(fieldCodes)) return;
+function formShowDisabled({ fieldCodes }) {
+    if (!Array.isArray(fieldCodes)) return;
 
-//     fieldCodes.forEach(fieldCode => {
-//         const fieldElems = document.querySelectorAll(
-//             `[data-field-code="${fieldCode}"] input, 
-//              [data-field-code="${fieldCode}"] textarea, 
-//              [data-field-code="${fieldCode}"] select`
-//         );
+    fieldCodes.forEach(fieldCode => {
+        const fieldElems = document.querySelectorAll(
+            `[data-field-code="${fieldCode}"] input, 
+             [data-field-code="${fieldCode}"] textarea, 
+             [data-field-code="${fieldCode}"] select`
+        );
 
-//         if (!fieldElems.length) return;
+        if (!fieldElems.length) return;
 
-//         const style = {
-//             backgroundColor: '#e3e7e8',
-//             color: '#888'
-//         };
+        const style = {
+            backgroundColor: '#e3e7e8',
+            color: '#888'
+        };
 
-//         fieldElems.forEach(elem => {
+        fieldElems.forEach(elem => {
 
-//             //編集不可
-//             elem.disabled = true;
+            //編集不可
+            elem.disabled = true;
 
-//             //styleの適応
-//             Object.entries(style).forEach(([key, value]) => {
-//                 elem.style[key] = value;
-//             });
-//         });
-//     });
-// }
+            //styleの適応
+            Object.entries(style).forEach(([key, value]) => {
+                elem.style[key] = value;
+            });
+        });
+    });
+}
 
 
 function formShowDisabled({ fieldCodes }) {
@@ -1073,6 +1088,6 @@ function toggleInputVisibility(rules) {
                     hiddenFields.add(showFieldCode);
                 }
             });
-        }, 100);
+        }, 150);
     };
 }
