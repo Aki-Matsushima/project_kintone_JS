@@ -782,18 +782,6 @@ function EstimatedCalc(respRecord, record, tableCode) {
 
     if (
       record[tableCode].value[i].value.見積費用明細_項目.value ===
-      "運用構築の品質維持管理"
-    ) {
-      if (
-        record[tableCode].value[i].value.見積費用明細_削除フラグ.value === "1"
-      ) {
-        ClearTable(record, tableCode, i);
-        Disabled(record, tableCode, i, true);
-      }
-    }
-
-    if (
-      record[tableCode].value[i].value.見積費用明細_項目.value ===
       "検証単体_テスト結果報告書作成"
     ) {
       if (
