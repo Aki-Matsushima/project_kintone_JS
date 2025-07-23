@@ -11,6 +11,7 @@
     (event) => {
       const record = event.record;
 
+      kintone.app.record.setFieldShown("ヒアリングシートステータス隠し", false);
       kintone.app.record.setFieldShown("案件期間隠し", false);
       kintone.app.record.setFieldShown("PM隠し", false);
       kintone.app.record.setFieldShown("PL隠し", false);
