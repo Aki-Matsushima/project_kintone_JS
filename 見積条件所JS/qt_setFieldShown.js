@@ -49,6 +49,11 @@
       kintone.app.record.setFieldShown("見積費用明細_大項目", false);
       kintone.app.record.setFieldShown("見積費用明細_削除フラグ", false);
       kintone.app.record.setFieldShown("見積費用明細_ID", false);
+
+
+      kintone.app.record.setFieldShown("レポトン用_お見積り条件_制約条件_新規1隠し", false);
+      kintone.app.record.setFieldShown("レポトン用_お見積り条件_制約条件_新規2隠し", false);
+
     }
   );
 
