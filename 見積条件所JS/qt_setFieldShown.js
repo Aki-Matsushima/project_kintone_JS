@@ -19,32 +19,17 @@
       kintone.app.record.setFieldShown("担当者2隠し", false);
       kintone.app.record.setFieldShown("担当者3隠し", false);
 
-      kintone.app.record.setFieldShown(
-        "レポトン用_監視単体_テスト設計隠し",
-        false
-      );
-      kintone.app.record.setFieldShown(
-        "レポトン用_監視単体_テスト実施隠し",
-        false
-      );
-      kintone.app.record.setFieldShown(
-        "レポトン用_監視単体_テスト結果報告書作成隠し",
-        false
-      );
+      kintone.app.record.setFieldShown("レポトン用_監視単体_テスト設計隠し", false);
+      kintone.app.record.setFieldShown("レポトン用_監視単体_テスト実施隠し", false);
+      kintone.app.record.setFieldShown("レポトン用_監視単体_テスト結果報告書作成隠し", false);
 
       kintone.app.record.setFieldShown("レポトン用_運用_テスト設計隠し", false);
       kintone.app.record.setFieldShown("レポトン用_運用_テスト実施隠し", false);
-      kintone.app.record.setFieldShown(
-        "レポトン用_運用_テスト結果報告書作成隠し",
-        false
-      );
+      kintone.app.record.setFieldShown("レポトン用_運用_テスト結果報告書作成隠し", false);
 
       kintone.app.record.setFieldShown("レポトン用_配信_テスト設計隠し", false);
       kintone.app.record.setFieldShown("レポトン用_配信_テスト実施隠し", false);
-      kintone.app.record.setFieldShown(
-        "レポトン用_配信_テスト結果報告書作成隠し",
-        false
-      );
+      kintone.app.record.setFieldShown("レポトン用_配信_テスト結果報告書作成隠し", false);
 
       //見積費用明細テーブルの項目を非表示
       kintone.app.record.setFieldShown("見積費用明細_大項目", false);
@@ -74,12 +59,9 @@ function testWrite(classification) {
       if (
         record[`${classification}テスト`].value[0] === `${classification}テスト`
       ) {
-        record[`レポトン用_${classification}_テスト設計隠し`].value =
-          "・テスト設計";
-        record[`レポトン用_${classification}_テスト実施隠し`].value =
-          "・テスト実施";
-        record[`レポトン用_${classification}_テスト結果報告書作成隠し`].value =
-          "・テスト結果報告書作成";
+        record[`レポトン用_${classification}_テスト設計隠し`].value = "・テスト設計";
+        record[`レポトン用_${classification}_テスト実施隠し`].value = "・テスト実施";
+        record[`レポトン用_${classification}_テスト結果報告書作成隠し`].value = "・テスト結果報告書作成";
       } else {
         record[`レポトン用_${classification}_テスト設計隠し`].value = "";
         record[`レポトン用_${classification}_テスト実施隠し`].value = "";
