@@ -1822,12 +1822,7 @@ function TableDelete(record, tableCode) {
 }
 
 
-/** 指定した日付から〇〇営業日前をフィールドにセットする処理
- * @param {Object} record - kintone event.record オブジェクト
- * @param {string} inputFieldCode - 入力日付フィールドのフィールドコード
- * @param {string} outputFieldCode - 出力フィールドのフィールドコード
- * @param {number} businessDaysBefore - 何営業日前にするか
- */
+// 指定した日付から〇〇営業日前をフィールドにセットする処理
 function setBusinessDaysAgo(record, inputFieldCode, outputFieldCode, businessDaysBefore) {
   const inputValue = record[inputFieldCode].value;
 
