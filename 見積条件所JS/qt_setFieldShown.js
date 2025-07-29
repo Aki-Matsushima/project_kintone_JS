@@ -42,4 +42,33 @@
 
     }
   );
+
+  testWrite("監視単体");
+  testWrite("運用");
+  testWrite("配信");
 })();
+
+function testWrite(classification) {
+  kintone.events.on(
+    [
+      `app.record.create.change.${classification}テスト`,
+      `app.record.edit.change.${classification}テスト`,
+    ],
+    (event) => {
+      const record = event.record;
+      if (
+        record[`${classification}テスト`].value[0] === `${classification}テスト`
+      ) {
+        record[`レポトン用_${classification}_テスト設計隠し`].value = "・テスト設計";
+        record[`レポトン用_${classification}_テスト実施隠し`].value = "・テスト実施";
+        record[`レポトン用_${classification}_テスト結果報告書作成隠し`].value = "・テスト結果報告書作成";
+      } else {
+        record[`レポトン用_${classification}_テスト設計隠し`].value = "";
+        record[`レポトン用_${classification}_テスト実施隠し`].value = "";
+        record[`レポトン用_${classification}_テスト結果報告書作成隠し`].value =
+          "";
+      }
+      return event;
+    }
+  );
+}
