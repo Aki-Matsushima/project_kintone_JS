@@ -4,14 +4,20 @@
 
     kintone.events.on(
         [
-            `app.record.create.submit`,
-            `app.record.edit.submit`,
+            `app.record.create.show`,
+            `app.record.edit.show`,
+            `app.record.create.change.設計_障害ランク表`,
+            `app.record.edit.change.設計_障害ランク表`,
+            `app.record.create.change.設計_緊急連絡体制図`,
+            `app.record.edit.change.設計_緊急連絡体制図`,
+            `app.record.create.change.設計_インシデント対応フロー`,
+            `app.record.edit.change.設計_インシデント対応フロー`,
         ],
         (event) => {
             const record = event.record;
 
             //障害ランク表がを作成する場合、お見積り条件に内容を追加する
-            if (record.設計_障害ランク表.value === `障害ランク表`) {
+            if (record.設計_障害ランク表.value.includes(`障害ランク表`)) {
                 record[`レポトン用_お見積り条件_制約条件_1隠し`].value =
                     "障害ランク表を作成するにあたり、障害ランク対象機能、シビアリティランク等の情報提供をお願いします。";
             } else {
@@ -19,8 +25,8 @@
             }
 
             //緊急連絡体制図またはインシデント対応フローの作成がある場合、お見積り条件に内容を追加する
-            if (record.設計_緊急連絡体制図.value === `緊急連絡体制図` ||
-                record.設計_インシデント対応フロー.value === `インシデント対応フロー`) {
+            if (record.設計_緊急連絡体制図.value.includes(`緊急連絡体制図`) ||
+                record.設計_インシデント対応フロー.value.includes(`インシデント対応フロー`)) {
                 record[`レポトン用_お見積り条件_制約条件_2隠し`].value =
                     "緊急連絡体制図やインシデント対応フローを作成するにあたり、運用維持体制に関わる方の役割や連絡先等の情報提供をお願いします。";
             } else {
@@ -28,7 +34,7 @@
             }
 
             //インシデント対応フローの作成がある場合、お見積り条件に内容を追加する
-            if (record.設計_インシデント対応フロー.value === `インシデント対応フロー`) {
+            if (record.設計_インシデント対応フロー.value.includes(`インシデント対応フロー`)) {
                 record[`レポトン用_お見積り条件_制約条件_3隠し`].value =
                     "インシデント対応フローは標準に準拠して、作成します。";
             } else {
@@ -39,6 +45,7 @@
             //「レポトン用_お見積り条件_制約条件_4隠し」「レポトン用_お見積り条件_制約条件_5隠し」は
             // ヒアリングシートの参照が必要なためボタン押下時の処理に記載
 
+            return event;
         }
     );
 
