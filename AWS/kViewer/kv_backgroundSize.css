@@ -1,3 +1,17 @@
-.bg-white.pb-20.pt-4.kv-detail {
+.kv-record-detail-content {
   width: 1300px;
+}
+
+#box {
+  width: 220px;
+  height: 500px;
+  padding: 5px;
+  border: 1px solid gray;
+  background-color: rgb(210, 232, 247);
+  box-sizing: border-box;
+}
+
+#box li {
+  margin-top: 2px;
+  margin-left: 10px;
 }
