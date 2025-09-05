@@ -1,6 +1,6 @@
- /* .kv-record-detail-content {
-  width: 1300px;
-} */
+ .kv-record-detail-content {
+   width: 1300px;
+ }
 
  /*
 #box {
@@ -27,17 +27,14 @@
 
  #box {
    position: fixed;
-   top: 80px;
+   /* top: 80px; */
    /* ヘッダー分を調整 */
-   left: 20px;
+   /* left: 20px; */
    width: 220px;
    max-height: calc(100vh - 100px);
    overflow-y: auto;
    z-index: 9999;
    padding: 5px;
-   border: 1px solid gray;
-   background: rgb(210, 232, 247);
-   box-sizing: border-box;
  }
 
  #box li {
