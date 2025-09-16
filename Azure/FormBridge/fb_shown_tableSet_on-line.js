@@ -42,17 +42,8 @@ const allHiddenFields = [
 
     //環境監視
     "その他の場合はアクセス方式を記載ください1",
-    "その他の場合はツール名を記載ください1",
-    "Newrelic_Datadogエージェント導入有無1",
-    "導入担当1",
-    "CloudWatchLogsへ転送しますか1",
-    "アプリログへの出力形式1",
-    "indentその他の場合はアクセス方式を記載ください1",
-    "indentその他の場合はツール名を記載ください1",
-    "indentNewrelic_Datadogエージェント導入有無1",
-    "indent導入担当1",
-    "indentCloudWatchLogsへ転送しますか1",
-    "indentアプリログへの出力形式1",
+    "Application Insightsの個数1",
+    "indentApplication Insightsの個数1",
 
     "システム名2",
     "インフラ環境2",
@@ -60,28 +51,12 @@ const allHiddenFields = [
     "号口アカウントID2",
     "仕向け2",
     "検証環境がない場合理由を記載ください2",
-    "インフラの実装方式2",
     "外部からのアクセス方式2",
     "その他の場合はアクセス方式を記載ください2",
     "監視環境2",
-    "監視ツール2",
-    "その他の場合はツール名を記載ください2",
-    "BacklogプロジェクトID2",
-    "EC22",
-    "Newrelic_Datadogエージェント導入有無2",
-    "導入担当2",
-    "アプリログ2",
-    "CloudWatchLogsへ転送しますか2",
-    "アプリログへの出力形式2",
-
-    "indent検証環境がない場合理由を記載ください2",
-    "indentその他の場合はアクセス方式を記載ください2",
-    "indentその他の場合はツール名を記載ください2",
-    "indentNewrelic_Datadogエージェント導入有無2",
-    "indent導入担当2",
-    "indentCloudWatchLogsへ転送しますか2",
-    "indentアプリログへの出力形式2",
-
+    "Application Insights導入有無2",
+    "Application Insightsの個数2",
+    "indentApplication Insightsの個数2",
 
     "システム名3",
     "インフラ環境3",
@@ -89,27 +64,12 @@ const allHiddenFields = [
     "号口アカウントID3",
     "仕向け3",
     "検証環境がない場合理由を記載ください3",
-    "インフラの実装方式3",
     "外部からのアクセス方式3",
     "その他の場合はアクセス方式を記載ください3",
     "監視環境3",
-    "監視ツール3",
-    "その他の場合はツール名を記載ください3",
-    "BacklogプロジェクトID3",
-    "EC23",
-    "Newrelic_Datadogエージェント導入有無3",
-    "導入担当3",
-    "アプリログ3",
-    "CloudWatchLogsへ転送しますか3",
-    "アプリログへの出力形式3",
-
-    "indent検証環境がない場合理由を記載ください3",
-    "indentその他の場合はアクセス方式を記載ください3",
-    "indentその他の場合はツール名を記載ください3",
-    "indentNewrelic_Datadogエージェント導入有無3",
-    "indent導入担当3",
-    "indentCloudWatchLogsへ転送しますか3",
-    "indentアプリログへの出力形式3",
+    "Application Insights導入有無3",
+    "Application Insightsの個数3",
+    "indentApplication Insightsの個数3",
 
     //開発体制
     "label開発フェーズ",
@@ -135,18 +95,15 @@ const allHiddenFields = [
     "システム構成図作成主体",
     "メッセージ対処表作成主体",
     "一次対処手順作成主体",
-    "サービス正常性確認手順作成主体",
     "クラウドメンテナンス設計作成主体",
 
     //標準監視
-    "AWSリソース",
+    "Azureリソース",
     "外形監視URL",
     "ログ",
-    "オプション監視",
     "カスタム監視",
     "運用受入",
-    "labelAWSリソース",
-    "labelオプション監視",
+    "labelAzureリソース",
     "labelカスタム監視",
     "label運用受入",
 ];
@@ -158,72 +115,29 @@ alwaysHiddenFields = [""];
 
 /*----テーブルの初期値---------------------------------*/
 const hearingItems = [
-    "EC2(Linux)",
-    "EC2(Windows)",
-    "ECS(Fargate)",
-    "ECS(EC2)",
-    "ELB(CLB)",
-    "ELB(ALB)",
-    "ELB(NLB)",
-    "RDS",
-    "RDS(Aurora)",
-    "DynamoDB",
-    "Lambda",
-    "API Gateway",
-    "Kinesis Data Streams",
-    "Kinesis Data Firehose",
-    "ElastiCache",
-    "EFS",
-    "CloudFront",
-    "Elastic Beanstalk",
-    "Redshift",
-    "S3",
-    "SES",
-    "SNS",
-    "SQS",
-    "SQS（DLQ)",
-    "EMR",
-    "StepFunction",
-    "AWS Backup",
-    "EventBridge(Rules)",
-    "EventBridge(Scheduler)",
-];
-// 
-const hearingUnit = [
-    "インスタンス",
-    "インスタンス",
-    "サービス",
-    "サービス",
-    "ターゲットグループ",
-    "ターゲットグループ",
-    "ターゲットグループ",
-    "インスタンス",
-    "インスタンス",
-    "テーブル",
-    "関数",
-    "ゲートウェイ",
-    "データストリーム",
-    "S3, OpenSearch, RedShift",
-    "ホスト",
-    "ファイルシステム",
-    "ディストリビューション",
-    "アプリケーション",
-    "クラスタ",
-    "バケット",
-    "SESで送信されるメール",
-    "SNSトピック",
-    "SQSキュー",
-    "SQSキュー",
-    "EMRクラスタ",
-    "Step Functionsステートマシン",
-    "バックアップジョブ",
-    "ルールネーム",
-    "スケジュールグループ",
-];
 
-const hearingCount = [
-    10, 8, 3, 3, 2, 2, 1, 3, 2, 4, 3, 4, 5, 1, 3, 2, 3, 1, 4, 2, 2, 1, 1, 1, 2, 2,
-    1, 2, 2,
+    "AppService",
+    "AppServicePlan",
+    "WebApps",
+    "CloudServices",
+    "SQLDB",
+    "CosmosDB",
+    "Redis Cache",
+    "Storage",
+    "VM",
+    "Logic Apps",
+    "Event hubs",
+    "Service Bus 名前空間",
+    "Application Gateway",
+    "Azure LB",
+    "DataFactory(V2)",
+    "Application Insights",
+    "Vnet",
+    "NAT Gateway",
+    "Private Link",
+    "Azure Artifacts",
+    "Azure Container Instance",
+
 ];
 
 // 表示済みフィールドコードを保持するセット
@@ -260,19 +174,14 @@ formBridge.events.on('form.show', function (context) {
         /*----フォーム表示時にフィールドを編集不可にする---------*/
         formShowDisabled({
             fieldCodes: [
-                'AWSリソース_サービス名',
-                'AWSリソース_単位',
-                'AWSリソース_監視項目数',
-                'AWSリソース_合計',
+                'Azureリソース_サービス名',
+                'Azureリソース_合計',
                 '外形監視URL_サービス名',
-                '外形監視URL_単位',
-                '外形監視URL_監視項目数',
                 '外形監視URL_合計',
                 'ログ_サービス名',
                 'ログ_単位',
                 'ログ_監視項目数',
                 'ログ_合計',
-                'オプション監視_合計',
                 'カスタム監視_合計',
                 '運用受入_中項目',
                 '運用受入_小項目',
@@ -282,22 +191,13 @@ formBridge.events.on('form.show', function (context) {
 
         /*----テーブルに初期値を設定--------------------------*/
 
-        //AWSリソーステーブルに初期値を設定
+        //Azureリソーステーブルに初期値を設定
         formShowTableInitialValues(context, {
-            tableCode: "AWSリソース",
-            fieldCode: "AWSリソース_サービス名",
+            tableCode: "Azureリソース",
+            fieldCode: "Azureリソース_サービス名",
             initValues: hearingItems,
         });
-        formShowTableInitialValues(context, {
-            tableCode: "AWSリソース",
-            fieldCode: "AWSリソース_単位",
-            initValues: hearingUnit,
-        });
-        formShowTableInitialValues(context, {
-            tableCode: "AWSリソース",
-            fieldCode: "AWSリソース_監視項目数",
-            initValues: hearingCount,
-        });
+
 
         //外形監視監視テーブルに初期値を設定
         formShowTableInitialValues(context, {
@@ -305,39 +205,12 @@ formBridge.events.on('form.show', function (context) {
             fieldCode: "外形監視URL_サービス名",
             initValues: ["URL"],
         });
-        formShowTableInitialValues(context, {
-            tableCode: "外形監視URL",
-            fieldCode: "外形監視URL_単位",
-            initValues: ["URL"],
-        });
-        formShowTableInitialValues(context, {
-            tableCode: "外形監視URL",
-            fieldCode: "外形監視URL_監視項目数",
-            initValues: [1],
-        });
 
         //ログテーブルに初期値を設定
         formShowTableInitialValues(context, {
             tableCode: "ログ",
             fieldCode: "ログ_サービス名",
-            initValues: ["ロググループ", "ログ"],
-        });
-        formShowTableInitialValues(context, {
-            tableCode: "ログ",
-            fieldCode: "ログ_単位",
-            initValues: ["ロググループ", "ログ"],
-        });
-        formShowTableInitialValues(context, {
-            tableCode: "ログ",
-            fieldCode: "ログ_監視項目数",
-            initValues: [1, 1],
-        });
-
-        //オプション監視テーブルに初期値を設定
-        formShowTableInitialValues(context, {
-            tableCode: "オプション監視",
-            fieldCode: "オプション監視_サービス名",
-            initValues: hearingItems,
+            initValues: ["APLログ監視"],
         });
 
         //運用受入テーブルに初期値を設定
@@ -371,9 +244,9 @@ const conditionalFieldMaps = {
     },
 
     '大項目選択': {
-        '監視対象（インフラ）': ['AWSリソース', 'labelAWSリソース'],
-        '外形監視（URL）': ['外形監視URL', 'labelAWSリソース'],
-        '監視対象（アプリ）': ['ログ', 'labelAWSリソース'],
+        '監視対象（インフラ）': ['Azureリソース', 'labelAzureリソース'],
+        '外形監視（URL）': ['外形監視URL', 'labelAzureリソース'],
+        '監視対象（アプリ）': ['ログ', 'labelAzureリソース'],
         'オプション監視': ['オプション監視', 'labelオプション監視'],
         'カスタム監視': ['カスタム監視', 'labelカスタム監視'],
         '運用受入': ['運用受入', 'label運用受入'],
@@ -394,13 +267,13 @@ const conditionalFieldMaps = {
             "検証アカウントID1",
             "号口アカウントID1",
             "仕向け1",
-            "インフラの実装方式1",
+            "検証環境がない場合理由を記載ください1",
             "外部からのアクセス方式1",
+            "その他の場合はアクセス方式を記載ください1",
             "監視環境1",
-            "監視ツール1",
-            "BacklogプロジェクトID1",
-            "EC21",
-            "アプリログ1",
+            "Application Insights導入有無1",
+            "Application Insightsの個数1",
+            "indentApplication Insightsの個数1",
         ],
         '2': [
             "システム名1",
@@ -408,27 +281,26 @@ const conditionalFieldMaps = {
             "検証アカウントID1",
             "号口アカウントID1",
             "仕向け1",
-            "インフラの実装方式1",
+            "検証環境がない場合理由を記載ください1",
             "外部からのアクセス方式1",
+            "その他の場合はアクセス方式を記載ください1",
             "監視環境1",
-            "監視ツール1",
-            "BacklogプロジェクトID1",
-            "EC21",
-            "アプリログ1",
+            "Application Insights導入有無1",
+            "Application Insightsの個数1",
+            "indentApplication Insightsの個数1",
+
             "システム名2",
             "インフラ環境2",
             "検証アカウントID2",
-            "検証環境がない場合理由を記載ください2",
-            "indent検証環境がない場合理由を記載ください2",
             "号口アカウントID2",
             "仕向け2",
-            "インフラの実装方式2",
+            "検証環境がない場合理由を記載ください2",
             "外部からのアクセス方式2",
+            "その他の場合はアクセス方式を記載ください2",
             "監視環境2",
-            "監視ツール2",
-            "BacklogプロジェクトID2",
-            "EC22",
-            "アプリログ2",
+            "Application Insights導入有無2",
+            "Application Insightsの個数2",
+            "indentApplication Insightsの個数2",
         ],
         '3': [
             "システム名1",
@@ -436,41 +308,39 @@ const conditionalFieldMaps = {
             "検証アカウントID1",
             "号口アカウントID1",
             "仕向け1",
-            "インフラの実装方式1",
+            "検証環境がない場合理由を記載ください1",
             "外部からのアクセス方式1",
+            "その他の場合はアクセス方式を記載ください1",
             "監視環境1",
-            "監視ツール1",
-            "BacklogプロジェクトID1",
-            "EC21",
-            "アプリログ1",
+            "Application Insights導入有無1",
+            "Application Insightsの個数1",
+            "indentApplication Insightsの個数1",
 
             "システム名2",
             "インフラ環境2",
             "検証アカウントID2",
             "号口アカウントID2",
             "仕向け2",
-            "インフラの実装方式2",
+            "検証環境がない場合理由を記載ください2",
             "外部からのアクセス方式2",
+            "その他の場合はアクセス方式を記載ください2",
             "監視環境2",
-            "監視ツール2",
-            "BacklogプロジェクトID2",
-            "EC22",
-            "アプリログ2",
+            "Application Insights導入有無2",
+            "Application Insightsの個数2",
+            "indentApplication Insightsの個数2",
 
             "システム名3",
             "インフラ環境3",
             "検証アカウントID3",
-            "検証環境がない場合理由を記載ください3",
-            "indent検証環境がない場合理由を記載ください3",
             "号口アカウントID3",
             "仕向け3",
-            "インフラの実装方式3",
+            "検証環境がない場合理由を記載ください3",
             "外部からのアクセス方式3",
+            "その他の場合はアクセス方式を記載ください3",
             "監視環境3",
-            "監視ツール3",
-            "BacklogプロジェクトID3",
-            "EC23",
-            "アプリログ3",
+            "Application Insights導入有無3",
+            "Application Insightsの個数3",
+            "indentApplication Insightsの個数3",
         ]
     },
 
@@ -478,51 +348,26 @@ const conditionalFieldMaps = {
     '外部からのアクセス方式1': {
         'その他': ['その他の場合はアクセス方式を記載ください1', 'indentその他の場合はアクセス方式を記載ください1'],
     },
-    '監視ツール1': {
-        'その他': ['その他の場合はツール名を記載ください1', 'indentその他の場合はツール名を記載ください1'],
-    },
-    'EC21': {
-        '有': ['Newrelic_Datadogエージェント導入有無1', 'indentNewrelic_Datadogエージェント導入有無1'],
-    },
-    'Newrelic_Datadogエージェント導入有無1': {
-        '有': ['導入担当1', 'indent導入担当1'],
-    },
-    'アプリログ1': {
-        '有': ['CloudWatchLogsへ転送しますか1', 'アプリログへの出力形式1', 'indentCloudWatchLogsへ転送しますか1', 'indentアプリログへの出力形式1'],
+    'Application Insights導入有無1': {
+        '有': ['Application Insightsの個数1', 'indentApplication Insightsの個数1'],
     },
 
     //環境変数 システム2
     '外部からのアクセス方式2': {
         'その他': ['その他の場合はアクセス方式を記載ください2', 'indentその他の場合はアクセス方式を記載ください2'],
     },
-    '監視ツール2': {
-        'その他': ['その他の場合はツール名を記載ください2', 'indentその他の場合はツール名を記載ください2'],
-    },
-    'EC22': {
-        '有': ['Newrelic_Datadogエージェント導入有無2', 'indentNewrelic_Datadogエージェント導入有無2'],
-    },
-    'Newrelic_Datadogエージェント導入有無2': {
-        '有': ['導入担当2', 'indent導入担当2'],
-    },
-    'アプリログ2': {
-        '有': ['CloudWatchLogsへ転送しますか2', 'アプリログへの出力形式2', 'indentCloudWatchLogsへ転送しますか2', 'indentアプリログへの出力形式2'],
+
+    'Application Insights導入有無2': {
+        '有': ['Application Insightsの個数2', 'indentApplication Insightsの個数2'],
     },
 
     //環境変数 システム3
     '外部からのアクセス方式3': {
         'その他': ['その他の場合はアクセス方式を記載ください3', 'indentその他の場合はアクセス方式を記載ください3'],
     },
-    '監視ツール3': {
-        'その他': ['その他の場合はツール名を記載ください3', 'indentその他の場合はツール名を記載ください3'],
-    },
-    'EC23': {
-        '有': ['Newrelic_Datadogエージェント導入有無3', 'indentNewrelic_Datadogエージェント導入有無3'],
-    },
-    'Newrelic_Datadogエージェント導入有無3': {
-        '有': ['導入担当3', 'indent導入担当3'],
-    },
-    'アプリログ3': {
-        '有': ['CloudWatchLogsへ転送しますか3', 'アプリログへの出力形式3', 'indentCloudWatchLogsへ転送しますか3', 'indentアプリログへの出力形式3'],
+
+    'Application Insights導入有無3': {
+        '有': ['Application Insightsの個数3', 'indentApplication Insightsの個数3'],
     },
 
     //開発体制
@@ -582,35 +427,16 @@ formBridge.events.on('form.field.change.システム数', toggleSelectVisibility
 
 //環境変数 システム1
 formBridge.events.on('form.field.change.外部からのアクセス方式1', toggleSelectVisibility({ fieldCode: '外部からのアクセス方式1' }));
-formBridge.events.on('form.field.change.監視ツール1', toggleSelectVisibility({ fieldCode: '監視ツール1' }));
-formBridge.events.on('form.field.change.EC21', toggleSelectVisibility({ fieldCode: 'EC21' }));
-formBridge.events.on('form.field.change.Newrelic_Datadogエージェント導入有無1', (context) => {
-    toggleSelectVisibility({ fieldCode: 'Newrelic_Datadogエージェント導入有無1' })(context)
-    context.setFieldValue("導入担当1", "運用構築");
-});
-formBridge.events.on('form.field.change.アプリログ1', toggleSelectVisibility({ fieldCode: 'アプリログ1' }));
-
+formBridge.events.on('form.field.change.Application Insights導入有無1', toggleSelectVisibility({ fieldCode: 'Application Insights導入有無1' }));
 //環境変数 システム2
 formBridge.events.on('form.field.change.外部からのアクセス方式2', toggleSelectVisibility({ fieldCode: '外部からのアクセス方式2' }));
-formBridge.events.on('form.field.change.監視ツール2', toggleSelectVisibility({ fieldCode: '監視ツール2' }));
-formBridge.events.on('form.field.change.EC22', toggleSelectVisibility({ fieldCode: 'EC22' }));
-formBridge.events.on('form.field.change.Newrelic_Datadogエージェント導入有無2', (context) => {
-    toggleSelectVisibility({ fieldCode: 'Newrelic_Datadogエージェント導入有無2' })(context)
-    context.setFieldValue("導入担当2", "運用構築");
-});
-formBridge.events.on('form.field.change.アプリログ2', toggleSelectVisibility({ fieldCode: 'アプリログ2' }));
+formBridge.events.on('form.field.change.Application Insights導入有無2', toggleSelectVisibility({ fieldCode: 'Application Insights導入有無2' }));
 
 //環境変数 システム3
 formBridge.events.on('form.field.change.外部からのアクセス方式3', toggleSelectVisibility({ fieldCode: '外部からのアクセス方式3' }));
-formBridge.events.on('form.field.change.監視ツール3', toggleSelectVisibility({ fieldCode: '監視ツール3' }));
-formBridge.events.on('form.field.change.EC23', toggleSelectVisibility({ fieldCode: 'EC23' }));
-formBridge.events.on('form.field.change.Newrelic_Datadogエージェント導入有無3', (context) => {
-    toggleSelectVisibility({ fieldCode: 'Newrelic_Datadogエージェント導入有無3' })(context)
-    context.setFieldValue("導入担当3", "運用構築");
-});
-formBridge.events.on('form.field.change.アプリログ3', toggleSelectVisibility({ fieldCode: 'アプリログ3' }));
+formBridge.events.on('form.field.change.Application Insights導入有無3', toggleSelectVisibility({ fieldCode: 'Application Insights導入有無3' }));
 
-
+//開発体制
 formBridge.events.on('form.field.change.開発フェーズと運用フェーズの営業担当者は別か', toggleSelectVisibility({ fieldCode: '開発フェーズと運用フェーズの営業担当者は別か' }));
 formBridge.events.on('form.field.change.週次定例の実施', toggleSelectVisibility({ fieldCode: '週次定例の実施' }));
 formBridge.events.on('form.field.change.週次進捗報告会の実施', toggleSelectVisibility({ fieldCode: '週次進捗報告会の実施' }));
@@ -621,7 +447,6 @@ formBridge.events.on('form.field.change.システム構成図', toggleSelectVisi
 formBridge.events.on('form.field.change.メッセージ対処表', toggleSelectVisibility({ fieldCode: 'メッセージ対処表' }));
 formBridge.events.on('form.field.change.一次対処手順', toggleSelectVisibility({ fieldCode: '一次対処手順' }));
 formBridge.events.on('form.field.change.サービス正常性確認手順', toggleSelectVisibility({ fieldCode: 'サービス正常性確認手順' }));
-formBridge.events.on('form.field.change.クラウドメンテナンス設計', toggleSelectVisibility({ fieldCode: 'クラウドメンテナンス設計' }));
 
 
 /*------------------------------------------------------
@@ -692,25 +517,6 @@ formBridge.events.on('form.field.change.検収日', toggleInputVisibility(rules)
 formBridge.events.on('form.field.change.検証アカウントID1', toggleInputVisibility(rules));
 formBridge.events.on('form.field.change.検証アカウントID2', toggleInputVisibility(rules));
 formBridge.events.on('form.field.change.検証アカウントID3', toggleInputVisibility(rules));
-
-
-
-//
-// formBridge.events.on('confirm.show', function (context) {
-
-//     console.log("oknnnisa");
-//     // setTimeout(() => {
-//     /*----フォーム表示時にフィールドを非表示にする-----------*/
-//     const toHide = allHiddenFields.filter(fieldCode => {
-//         return !shownFields.has(fieldCode);
-//     });
-//     console.log("toHide", toHide);
-//     formHiddenFields(toHide);
-
-//     // }, 100);
-
-//     return context;
-// });
 
 
 
