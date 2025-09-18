@@ -37,7 +37,6 @@
 
       //見積有無でチェックが付いているものだけ提出期限を表示
       const estimate_check = record.見積有無.value;
-      console.log("estimate_check", estimate_check);
       if (estimate_check.indexOf("超概算見積") > -1) {
         kintone.app.record.setFieldShown("超概算見積提出期日", true);
       } else {
@@ -609,12 +608,9 @@
     ],
     (event) => {
       const record = event.record;
-      console.log("record", record);
 
       //見積有無でチェックが付いているものだけ提出期限を表示
       const mainItems = record.大項目選択.value;
-      console.log("record.大項目選択.value", record.大項目選択.value);
-      console.log("mainItems", mainItems);
       if (mainItems.indexOf("監視対象（インフラ）") > -1) {
         kintone.app.record.setFieldShown("Azureリソース", true);
       } else {
