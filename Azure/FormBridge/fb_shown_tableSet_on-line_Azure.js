@@ -42,8 +42,9 @@ const allHiddenFields = [
 
     //環境監視
     "その他の場合はアクセス方式を記載ください1",
-    "Application Insightsの個数1",
-    "indentApplication Insightsの個数1",
+    "indentその他の場合はアクセス方式を記載ください1",
+    "ApplicationInsightsの個数1",
+    "indentApplicationInsightsの個数1",
 
     "システム名2",
     "インフラ環境2",
@@ -53,10 +54,11 @@ const allHiddenFields = [
     "検証環境がない場合理由を記載ください2",
     "外部からのアクセス方式2",
     "その他の場合はアクセス方式を記載ください2",
+    "indentその他の場合はアクセス方式を記載ください2",
     "監視環境2",
-    "Application Insights導入有無2",
-    "Application Insightsの個数2",
-    "indentApplication Insightsの個数2",
+    "ApplicationInsights導入有無2",
+    "ApplicationInsightsの個数2",
+    "indentApplicationInsightsの個数2",
 
     "システム名3",
     "インフラ環境3",
@@ -66,10 +68,11 @@ const allHiddenFields = [
     "検証環境がない場合理由を記載ください3",
     "外部からのアクセス方式3",
     "その他の場合はアクセス方式を記載ください3",
+    "indentその他の場合はアクセス方式を記載ください3",
     "監視環境3",
-    "Application Insights導入有無3",
-    "Application Insightsの個数3",
-    "indentApplication Insightsの個数3",
+    "ApplicationInsights導入有無3",
+    "ApplicationInsightsの個数3",
+    "indentApplicationInsightsの個数3",
 
     //開発体制
     "label開発フェーズ",
@@ -95,7 +98,7 @@ const allHiddenFields = [
     "システム構成図作成主体",
     "メッセージ対処表作成主体",
     "一次対処手順作成主体",
-    "クラウドメンテナンス設計作成主体",
+    "サービス正常性確認手順作成主体",
 
     //標準監視
     "Azureリソース",
@@ -225,7 +228,7 @@ formBridge.events.on('form.show', function (context) {
             initValues: ["手順数", "手順数"],
         });
 
-    }, 200);
+    }, 300);
 
     return context;
 
@@ -247,7 +250,6 @@ const conditionalFieldMaps = {
         '監視対象（インフラ）': ['Azureリソース', 'labelAzureリソース'],
         '外形監視（URL）': ['外形監視URL', 'labelAzureリソース'],
         '監視対象（アプリ）': ['ログ', 'labelAzureリソース'],
-        'オプション監視': ['オプション監視', 'labelオプション監視'],
         'カスタム監視': ['カスタム監視', 'labelカスタム監視'],
         '運用受入': ['運用受入', 'label運用受入'],
     },
@@ -268,12 +270,10 @@ const conditionalFieldMaps = {
             "号口アカウントID1",
             "仕向け1",
             "検証環境がない場合理由を記載ください1",
+            "indent検証環境がない場合理由を記載ください1",
             "外部からのアクセス方式1",
-            "その他の場合はアクセス方式を記載ください1",
             "監視環境1",
-            "Application Insights導入有無1",
-            "Application Insightsの個数1",
-            "indentApplication Insightsの個数1",
+            "ApplicationInsights導入有無1",
         ],
         '2': [
             "システム名1",
@@ -282,12 +282,10 @@ const conditionalFieldMaps = {
             "号口アカウントID1",
             "仕向け1",
             "検証環境がない場合理由を記載ください1",
+            "indent検証環境がない場合理由を記載ください1",
             "外部からのアクセス方式1",
-            "その他の場合はアクセス方式を記載ください1",
             "監視環境1",
-            "Application Insights導入有無1",
-            "Application Insightsの個数1",
-            "indentApplication Insightsの個数1",
+            "ApplicationInsights導入有無1",
 
             "システム名2",
             "インフラ環境2",
@@ -295,12 +293,10 @@ const conditionalFieldMaps = {
             "号口アカウントID2",
             "仕向け2",
             "検証環境がない場合理由を記載ください2",
+            "indent検証環境がない場合理由を記載ください2",
             "外部からのアクセス方式2",
-            "その他の場合はアクセス方式を記載ください2",
             "監視環境2",
-            "Application Insights導入有無2",
-            "Application Insightsの個数2",
-            "indentApplication Insightsの個数2",
+            "ApplicationInsights導入有無2",
         ],
         '3': [
             "システム名1",
@@ -309,12 +305,10 @@ const conditionalFieldMaps = {
             "号口アカウントID1",
             "仕向け1",
             "検証環境がない場合理由を記載ください1",
+            "indent検証環境がない場合理由を記載ください1",
             "外部からのアクセス方式1",
-            "その他の場合はアクセス方式を記載ください1",
             "監視環境1",
-            "Application Insights導入有無1",
-            "Application Insightsの個数1",
-            "indentApplication Insightsの個数1",
+            "ApplicationInsights導入有無1",
 
             "システム名2",
             "インフラ環境2",
@@ -322,12 +316,10 @@ const conditionalFieldMaps = {
             "号口アカウントID2",
             "仕向け2",
             "検証環境がない場合理由を記載ください2",
+            "indent検証環境がない場合理由を記載ください2",
             "外部からのアクセス方式2",
-            "その他の場合はアクセス方式を記載ください2",
             "監視環境2",
-            "Application Insights導入有無2",
-            "Application Insightsの個数2",
-            "indentApplication Insightsの個数2",
+            "ApplicationInsights導入有無2",
 
             "システム名3",
             "インフラ環境3",
@@ -335,12 +327,11 @@ const conditionalFieldMaps = {
             "号口アカウントID3",
             "仕向け3",
             "検証環境がない場合理由を記載ください3",
+            "indent検証環境がない場合理由を記載ください3",
             "外部からのアクセス方式3",
-            "その他の場合はアクセス方式を記載ください3",
             "監視環境3",
-            "Application Insights導入有無3",
-            "Application Insightsの個数3",
-            "indentApplication Insightsの個数3",
+            "ApplicationInsights導入有無3",
+            "ApplicationInsightsの個数3",
         ]
     },
 
@@ -348,8 +339,8 @@ const conditionalFieldMaps = {
     '外部からのアクセス方式1': {
         'その他': ['その他の場合はアクセス方式を記載ください1', 'indentその他の場合はアクセス方式を記載ください1'],
     },
-    'Application Insights導入有無1': {
-        '有': ['Application Insightsの個数1', 'indentApplication Insightsの個数1'],
+    'ApplicationInsights導入有無1': {
+        '有': ['ApplicationInsightsの個数1', 'indentApplicationInsightsの個数1'],
     },
 
     //環境変数 システム2
@@ -357,8 +348,8 @@ const conditionalFieldMaps = {
         'その他': ['その他の場合はアクセス方式を記載ください2', 'indentその他の場合はアクセス方式を記載ください2'],
     },
 
-    'Application Insights導入有無2': {
-        '有': ['Application Insightsの個数2', 'indentApplication Insightsの個数2'],
+    'ApplicationInsights導入有無2': {
+        '有': ['ApplicationInsightsの個数2', 'indentApplicationInsightsの個数2'],
     },
 
     //環境変数 システム3
@@ -366,8 +357,8 @@ const conditionalFieldMaps = {
         'その他': ['その他の場合はアクセス方式を記載ください3', 'indentその他の場合はアクセス方式を記載ください3'],
     },
 
-    'Application Insights導入有無3': {
-        '有': ['Application Insightsの個数3', 'indentApplication Insightsの個数3'],
+    'ApplicationInsights導入有無3': {
+        '有': ['ApplicationInsightsの個数3', 'indentApplicationInsightsの個数3'],
     },
 
     //開発体制
@@ -409,10 +400,7 @@ const conditionalFieldMaps = {
         '新規作成': [`サービス正常性確認手順作成主体`],
         '更新あり': [`サービス正常性確認手順作成主体`],
     },
-    'クラウドメンテナンス設計': {
-        '新規作成': [`クラウドメンテナンス設計作成主体`],
-        '更新あり': [`クラウドメンテナンス設計作成主体`],
-    },
+
 
 };
 
@@ -427,14 +415,14 @@ formBridge.events.on('form.field.change.システム数', toggleSelectVisibility
 
 //環境変数 システム1
 formBridge.events.on('form.field.change.外部からのアクセス方式1', toggleSelectVisibility({ fieldCode: '外部からのアクセス方式1' }));
-formBridge.events.on('form.field.change.Application Insights導入有無1', toggleSelectVisibility({ fieldCode: 'Application Insights導入有無1' }));
+formBridge.events.on('form.field.change.ApplicationInsights導入有無1', toggleSelectVisibility({ fieldCode: 'ApplicationInsights導入有無1' }));
 //環境変数 システム2
 formBridge.events.on('form.field.change.外部からのアクセス方式2', toggleSelectVisibility({ fieldCode: '外部からのアクセス方式2' }));
-formBridge.events.on('form.field.change.Application Insights導入有無2', toggleSelectVisibility({ fieldCode: 'Application Insights導入有無2' }));
+formBridge.events.on('form.field.change.ApplicationInsights導入有無2', toggleSelectVisibility({ fieldCode: 'ApplicationInsights導入有無2' }));
 
 //環境変数 システム3
 formBridge.events.on('form.field.change.外部からのアクセス方式3', toggleSelectVisibility({ fieldCode: '外部からのアクセス方式3' }));
-formBridge.events.on('form.field.change.Application Insights導入有無3', toggleSelectVisibility({ fieldCode: 'Application Insights導入有無3' }));
+formBridge.events.on('form.field.change.ApplicationInsights導入有無3', toggleSelectVisibility({ fieldCode: 'ApplicationInsights導入有無3' }));
 
 //開発体制
 formBridge.events.on('form.field.change.開発フェーズと運用フェーズの営業担当者は別か', toggleSelectVisibility({ fieldCode: '開発フェーズと運用フェーズの営業担当者は別か' }));
@@ -894,6 +882,6 @@ function toggleInputVisibility(rules) {
                     hiddenFields.add(showFieldCode);
                 }
             });
-        }, 200);
+        }, 300);
     };
 }
