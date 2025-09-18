@@ -352,7 +352,7 @@ formBridge.events.on('form.show', function (context) {
             initValues: ["手順数", "手順数"],
         });
 
-    }, 200);
+    }, 300);
 
     return context;
 
@@ -1124,6 +1124,6 @@ function toggleInputVisibility(rules) {
                     hiddenFields.add(showFieldCode);
                 }
             });
-        }, 200);
+        }, 300);
     };
 }
