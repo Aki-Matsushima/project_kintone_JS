@@ -6,15 +6,13 @@
 
   //常に非表示
   kintone.events.on(
-    ["app.record.create.show", "app.record.edit.show"],
+    ["app.record.create.show", "app.record.edit.show", "app.record.detail.show"],
     (event) => {
       kintone.app.record.setFieldShown("セキュリティチェック隠し", false);
 
       kintone.app.record.setFieldShown("定例の回数と所要時間隠し", false);
 
-      kintone.app.record.setFieldShown(
-        "見積費用明細計算用_定例工数隠し",
-        false
+      kintone.app.record.setFieldShown("見積費用明細計算用_定例工数隠し", false
       );
     }
   );
@@ -28,6 +26,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.見積有無",
       "app.record.edit.change.見積有無",
     ],
@@ -66,6 +65,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.検収日",
       "app.record.edit.change.検収日",
       "app.record.create.change.号口日",
@@ -97,6 +97,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.セキュリティチェック",
       "app.record.edit.change.セキュリティチェック",
     ],
@@ -132,6 +133,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.システム数",
       "app.record.edit.change.システム数",
     ],
@@ -166,6 +168,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.検証アカウントID1",
       "app.record.edit.change.検証アカウントID1",
     ],
@@ -176,15 +179,9 @@
         record.検証アカウントID1.value === "" ||
         record.検証アカウントID1.value === undefined
       ) {
-        kintone.app.record.setFieldShown(
-          "検証環境がない場合理由を記載ください1",
-          true
-        );
+        kintone.app.record.setFieldShown("検証環境がない場合理由を記載ください1", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "検証環境がない場合理由を記載ください1",
-          false
-        );
+        kintone.app.record.setFieldShown("検証環境がない場合理由を記載ください1", false);
         record.検証環境がない場合理由を記載ください1.value = "";
       }
       return event;
@@ -196,6 +193,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.外部からのアクセス方式1",
       "app.record.edit.change.外部からのアクセス方式1",
     ],
@@ -204,15 +202,9 @@
 
       //その他の場合はアクセス方式を記載させる（その他以外に切り替えた場合、その他アクセス方式の値をクリア）
       if (record.外部からのアクセス方式1.value === "その他") {
-        kintone.app.record.setFieldShown(
-          "その他の場合はアクセス方式を記載ください1",
-          true
-        );
+        kintone.app.record.setFieldShown("その他の場合はアクセス方式を記載ください1", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "その他の場合はアクセス方式を記載ください1",
-          false
-        );
+        kintone.app.record.setFieldShown("その他の場合はアクセス方式を記載ください1", false);
         record.その他の場合はアクセス方式を記載ください1.value = "";
       }
       return event;
@@ -224,6 +216,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.監視ツール1",
       "app.record.edit.change.監視ツール1",
     ],
@@ -252,6 +245,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.EC21",
       "app.record.edit.change.EC21",
     ],
@@ -260,15 +254,9 @@
 
       //EC2が有の場合はNewrelic_Datadogエージェント導入有無を表示させる
       if (record.EC21.value === "有") {
-        kintone.app.record.setFieldShown(
-          "Newrelic_Datadogエージェント導入有無1",
-          true
-        );
+        kintone.app.record.setFieldShown("Newrelic_Datadogエージェント導入有無1", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "Newrelic_Datadogエージェント導入有無1",
-          false
-        );
+        kintone.app.record.setFieldShown("Newrelic_Datadogエージェント導入有無1", false);
         record.Newrelic_Datadogエージェント導入有無1.value = "---";
       }
       return event;
@@ -280,6 +268,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.Newrelic_Datadogエージェント導入有無1",
       "app.record.edit.change.Newrelic_Datadogエージェント導入有無1",
     ],
@@ -303,20 +292,21 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.アプリログ1",
       "app.record.edit.change.アプリログ1",
     ],
     (event) => {
       const record = event.record;
 
-      //アプリログが有の場合はECSのログ転送方式とアプリログへの出力形式を表示させる
+      //アプリログが有の場合はCloudWatchLogsへ転送しますかとアプリログへの出力形式を表示させる
       if (record.アプリログ1.value === "有") {
-        kintone.app.record.setFieldShown("ECSのログ転送方式1", true);
+        kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか1", true);
         kintone.app.record.setFieldShown("アプリログへの出力形式1", true);
       } else {
-        kintone.app.record.setFieldShown("ECSのログ転送方式1", false);
+        kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか1", false);
         kintone.app.record.setFieldShown("アプリログへの出力形式1", false);
-        record.ECSのログ転送方式1.value = "";
+        record.CloudWatchLogsへ転送しますか1.value = "";
         record.アプリログへの出力形式1.value = "---";
       }
       return event;
@@ -332,30 +322,22 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.検証アカウントID2",
       "app.record.edit.change.検証アカウントID2",
     ],
     (event) => {
       const record = event.record;
-      kintone.app.record.setFieldShown(
-        "検証環境がない場合理由を記載ください2",
-        false
-      );
+      kintone.app.record.setFieldShown("検証環境がない場合理由を記載ください2", false);
       //検証アカウントID2が空欄の場合は理由を記載させる（その他以外に切り替えた場合、その他ツール名の値をクリア）
       if (
         (record.検証アカウントID2.value === "" ||
           record.検証アカウントID2.value === undefined) &&
         record.システム数.value !== "1"
       ) {
-        kintone.app.record.setFieldShown(
-          "検証環境がない場合理由を記載ください2",
-          true
-        );
+        kintone.app.record.setFieldShown("検証環境がない場合理由を記載ください2", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "検証環境がない場合理由を記載ください2",
-          false
-        );
+        kintone.app.record.setFieldShown("検証環境がない場合理由を記載ください2", false);
         record.検証環境がない場合理由を記載ください2.value = "";
       }
       return event;
@@ -367,6 +349,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.外部からのアクセス方式2",
       "app.record.edit.change.外部からのアクセス方式2",
     ],
@@ -375,15 +358,9 @@
 
       //その他の場合はアクセス方式を記載させる（その他以外に切り替えた場合、その他アクセス方式の値をクリア）
       if (record.外部からのアクセス方式2.value === "その他") {
-        kintone.app.record.setFieldShown(
-          "その他の場合はアクセス方式を記載ください2",
-          true
-        );
+        kintone.app.record.setFieldShown("その他の場合はアクセス方式を記載ください2", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "その他の場合はアクセス方式を記載ください2",
-          false
-        );
+        kintone.app.record.setFieldShown("その他の場合はアクセス方式を記載ください2", false);
         record.その他の場合はアクセス方式を記載ください2.value = "";
       }
       return event;
@@ -395,6 +372,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.監視ツール2",
       "app.record.edit.change.監視ツール2",
     ],
@@ -403,15 +381,9 @@
 
       //その他の場合は監視ツールを記載させる（その他以外に切り替えた場合、その他ツール名の値をクリア）
       if (record.監視ツール2.value === "その他") {
-        kintone.app.record.setFieldShown(
-          "その他の場合はツール名を記載ください2",
-          true
-        );
+        kintone.app.record.setFieldShown("その他の場合はツール名を記載ください2", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "その他の場合はツール名を記載ください2",
-          false
-        );
+        kintone.app.record.setFieldShown("その他の場合はツール名を記載ください2", false);
         record.その他の場合はツール名を記載ください2.value = "";
       }
       return event;
@@ -423,6 +395,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.EC22",
       "app.record.edit.change.EC22",
     ],
@@ -431,15 +404,9 @@
 
       //EC2が有の場合はNewrelic_Datadogエージェント導入有無を表示させる
       if (record.EC22.value === "有") {
-        kintone.app.record.setFieldShown(
-          "Newrelic_Datadogエージェント導入有無2",
-          true
-        );
+        kintone.app.record.setFieldShown("Newrelic_Datadogエージェント導入有無2", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "Newrelic_Datadogエージェント導入有無2",
-          false
-        );
+        kintone.app.record.setFieldShown("Newrelic_Datadogエージェント導入有無2", false);
         record.Newrelic_Datadogエージェント導入有無2.value = "---";
       }
       return event;
@@ -451,6 +418,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.Newrelic_Datadogエージェント導入有無2",
       "app.record.edit.change.Newrelic_Datadogエージェント導入有無2",
     ],
@@ -474,20 +442,21 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.アプリログ2",
       "app.record.edit.change.アプリログ2",
     ],
     (event) => {
       const record = event.record;
 
-      //アプリログが有の場合はECSのログ転送方式とアプリログへの出力形式を表示させる
+      //アプリログが有の場合はCloudWatchLogsへ転送しますかとアプリログへの出力形式を表示させる
       if (record.アプリログ2.value === "有") {
-        kintone.app.record.setFieldShown("ECSのログ転送方式2", true);
+        kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか2", true);
         kintone.app.record.setFieldShown("アプリログへの出力形式2", true);
       } else {
-        kintone.app.record.setFieldShown("ECSのログ転送方式2", false);
+        kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか2", false);
         kintone.app.record.setFieldShown("アプリログへの出力形式2", false);
-        record.ECSのログ転送方式2.value = "";
+        record.CloudWatchLogsへ転送しますか2.value = "";
         record.アプリログへの出力形式2.value = "---";
       }
       return event;
@@ -503,6 +472,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.検証アカウントID3",
       "app.record.edit.change.検証アカウントID3",
     ],
@@ -515,15 +485,9 @@
           record.検証アカウントID3.value === undefined) &&
         record.システム数.value === "3"
       ) {
-        kintone.app.record.setFieldShown(
-          "検証環境がない場合理由を記載ください3",
-          true
-        );
+        kintone.app.record.setFieldShown("検証環境がない場合理由を記載ください3", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "検証環境がない場合理由を記載ください3",
-          false
-        );
+        kintone.app.record.setFieldShown("検証環境がない場合理由を記載ください3", false);
         record.検証環境がない場合理由を記載ください3.value = "";
       }
       return event;
@@ -535,6 +499,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.外部からのアクセス方式3",
       "app.record.edit.change.外部からのアクセス方式3",
     ],
@@ -543,15 +508,9 @@
 
       //その他の場合はアクセス方式を記載させる（その他以外に切り替えた場合、その他アクセス方式の値をクリア）
       if (record.外部からのアクセス方式3.value === "その他") {
-        kintone.app.record.setFieldShown(
-          "その他の場合はアクセス方式を記載ください3",
-          true
-        );
+        kintone.app.record.setFieldShown("その他の場合はアクセス方式を記載ください3", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "その他の場合はアクセス方式を記載ください3",
-          false
-        );
+        kintone.app.record.setFieldShown("その他の場合はアクセス方式を記載ください3", false);
         record.その他の場合はアクセス方式を記載ください3.value = "";
       }
       return event;
@@ -563,6 +522,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.監視ツール3",
       "app.record.edit.change.監視ツール3",
     ],
@@ -571,15 +531,9 @@
 
       //その他の場合は監視ツールを記載させる（その他以外に切り替えた場合、その他ツール名の値をクリア）
       if (record.監視ツール3.value === "その他") {
-        kintone.app.record.setFieldShown(
-          "その他の場合はツール名を記載ください3",
-          true
-        );
+        kintone.app.record.setFieldShown("その他の場合はツール名を記載ください3", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "その他の場合はツール名を記載ください3",
-          false
-        );
+        kintone.app.record.setFieldShown("その他の場合はツール名を記載ください3", false);
         record.その他の場合はツール名を記載ください3.value = "";
       }
       return event;
@@ -591,6 +545,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.EC23",
       "app.record.edit.change.EC23",
     ],
@@ -599,15 +554,9 @@
 
       //EC2が有の場合はNewrelic_Datadogエージェント導入有無を表示させる
       if (record.EC23.value === "有") {
-        kintone.app.record.setFieldShown(
-          "Newrelic_Datadogエージェント導入有無3",
-          true
-        );
+        kintone.app.record.setFieldShown("Newrelic_Datadogエージェント導入有無3", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "Newrelic_Datadogエージェント導入有無3",
-          false
-        );
+        kintone.app.record.setFieldShown("Newrelic_Datadogエージェント導入有無3", false);
         record.Newrelic_Datadogエージェント導入有無3.value = "---";
       }
       return event;
@@ -619,6 +568,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.Newrelic_Datadogエージェント導入有無3",
       "app.record.edit.change.Newrelic_Datadogエージェント導入有無3",
     ],
@@ -642,20 +592,21 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.アプリログ3",
       "app.record.edit.change.アプリログ3",
     ],
     (event) => {
       const record = event.record;
 
-      //アプリログが有の場合はECSのログ転送方式とアプリログへの出力形式を表示させる
+      //アプリログが有の場合はCloudWatchLogsへ転送しますかとアプリログへの出力形式を表示させる
       if (record.アプリログ3.value === "有") {
-        kintone.app.record.setFieldShown("ECSのログ転送方式3", true);
+        kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか3", true);
         kintone.app.record.setFieldShown("アプリログへの出力形式3", true);
       } else {
-        kintone.app.record.setFieldShown("ECSのログ転送方式3", false);
+        kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか3", false);
         kintone.app.record.setFieldShown("アプリログへの出力形式3", false);
-        record.ECSのログ転送方式3.value = "";
+        record.CloudWatchLogsへ転送しますか3.value = "";
         record.アプリログへの出力形式3.value = "---";
       }
       return event;
@@ -666,32 +617,33 @@
       開発体制
   -------------------------------------------*/
 
-  //開発フェーズと運用フェーズの担当者は別か編集時
+  //開発フェーズと運用フェーズの営業担当者は別か編集時
   kintone.events.on(
     [
       "app.record.create.show",
       "app.record.edit.show",
-      "app.record.create.change.開発フェーズと運用フェーズの担当者は別か",
-      "app.record.edit.change.開発フェーズと運用フェーズの担当者は別か",
+      "app.record.detail.show",
+      "app.record.create.change.開発フェーズと運用フェーズの営業担当者は別か",
+      "app.record.edit.change.開発フェーズと運用フェーズの営業担当者は別か",
     ],
     (event) => {
       const record = event.record;
 
-      //開発フェーズと運用フェーズの担当者は別かが別々の場合は運用担当者らを表示させる
-      if (record.開発フェーズと運用フェーズの担当者は別か.value === "別々") {
-        kintone.app.record.setFieldShown("TC営業運用部署名", true);
-        kintone.app.record.setFieldShown("TC営業_運用主担当者", true);
-        kintone.app.record.setFieldShown("TC営業_運用副担当者1", true);
-        kintone.app.record.setFieldShown("TC営業_運用副担当者2", true);
+      //開発フェーズと運用フェーズの営業担当者は別かが別々の場合は運用担当者らを表示させる
+      if (record.開発フェーズと運用フェーズの営業担当者は別か.value === "別々") {
+        kintone.app.record.setFieldShown("TC営業2_部署名", true);
+        kintone.app.record.setFieldShown("TC営業2_主担当者", true);
+        kintone.app.record.setFieldShown("TC営業2_副担当者1", true);
+        kintone.app.record.setFieldShown("TC営業2_副担当者2", true);
       } else {
-        kintone.app.record.setFieldShown("TC営業運用部署名", false);
-        kintone.app.record.setFieldShown("TC営業_運用主担当者", false);
-        kintone.app.record.setFieldShown("TC営業_運用副担当者1", false);
+        kintone.app.record.setFieldShown("TC営業2_部署名", false);
+        kintone.app.record.setFieldShown("TC営業2_主担当者", false);
+        kintone.app.record.setFieldShown("TC営業2_副担当者1", false);
         kintone.app.record.setFieldShown("TC営業_運用副担当者2", false);
-        record.TC営業運用部署名.value = "";
-        record.TC営業_運用主担当者.value = "";
-        record.TC営業_運用副担当者1.value = "";
-        record.TC営業_運用副担当者2.value = "";
+        record.TC営業2_部署名.value = "";
+        record.TC営業2_主担当者.value = "";
+        record.TC営業2_副担当者1.value = "";
+        record.TC営業2_副担当者2.value = "";
       }
       return event;
     }
@@ -705,6 +657,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.号口環境_インフラリソース構築日",
       "app.record.edit.change.号口環境_インフラリソース構築日",
       "app.record.create.change.号口環境_アプリデプロイ日",
@@ -721,15 +674,9 @@
 
       //号口日と構築日またはデプロイ日が同日に設定されていた場合に理由記入欄を表示
       if (buildingDate === gouguchiDate || deployDate === gouguchiDate) {
-        kintone.app.record.setFieldShown(
-          "アプリデプロイ日やインフラリソース構築日が号口日と同日です理由を記載ください",
-          true
-        );
+        kintone.app.record.setFieldShown("アプリデプロイ日やインフラリソース構築日が号口日と同日です理由を記載ください", true);
       } else {
-        kintone.app.record.setFieldShown(
-          "アプリデプロイ日やインフラリソース構築日が号口日と同日です理由を記載ください",
-          false
-        );
+        kintone.app.record.setFieldShown("アプリデプロイ日やインフラリソース構築日が号口日と同日です理由を記載ください", false);
         record.アプリデプロイ日やインフラリソース構築日が号口日と同日です理由を記載ください.value =
           "";
       }
@@ -745,6 +692,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.週次定例の実施",
       "app.record.edit.change.週次定例の実施",
     ],
@@ -774,6 +722,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.週次進捗報告会の実施",
       "app.record.edit.change.週次進捗報告会の実施",
     ],
@@ -799,11 +748,10 @@
   OutputImage("メッセージ対処表", 2);
   OutputImage("一次対処手順", 2);
   OutputImage("サービス正常性確認手順", 2);
-  OutputImage("障害ランク表", 1);
-  OutputImage("緊急連絡体制図", 1);
+  // OutputImage("障害ランク表", 1);
   OutputImage("クラウドメンテナンス設計", 2);
-  OutputImage("インシデント対応フロー", 1);
-  OutputImage("運用設計書", 1);
+  // OutputImage("インシデント対応フロー", 1);
+  // OutputImage("運用設計書", 1);
 
   /*-------------------------------------------
       標準監視
@@ -814,6 +762,7 @@
     [
       "app.record.create.show",
       "app.record.edit.show",
+      "app.record.detail.show",
       "app.record.create.change.大項目選択",
       "app.record.edit.change.大項目選択",
     ],
@@ -881,7 +830,7 @@ function OutputImage(fieldcode, optionCount) {
       ) {
         kintone.app.record.setFieldShown(`${fieldcode}作成主体`, true);
         if (optionCount === 1)
-          record[`${fieldcode}作成主体`].value = "運用構築担当";
+          record[`${fieldcode}作成主体`].value = "運用構築担当で仕上げ必要";
       } else {
         kintone.app.record.setFieldShown(`${fieldcode}作成主体`, false);
         record[`${fieldcode}作成主体`].value = "";
@@ -900,44 +849,23 @@ function SystemCountShownFalse(SystemCount, event) {
   kintone.app.record.setFieldShown(`検証アカウントID${SystemCount}`, false);
   kintone.app.record.setFieldShown(`号口アカウントID${SystemCount}`, false);
   kintone.app.record.setFieldShown(`仕向け${SystemCount}`, false);
-  kintone.app.record.setFieldShown(
-    `検証環境がない場合理由を記載ください${SystemCount}`,
-    false
-  );
+  kintone.app.record.setFieldShown(`検証環境がない場合理由を記載ください${SystemCount}`, false);
 
   kintone.app.record.setFieldShown(`インフラの実装方式${SystemCount}`, false);
-  kintone.app.record.setFieldShown(
-    `外部からのアクセス方式${SystemCount}`,
-    false
-  );
-  kintone.app.record.setFieldShown(
-    `その他の場合はアクセス方式を記載ください${SystemCount}`,
-    false
-  );
+  kintone.app.record.setFieldShown(`外部からのアクセス方式${SystemCount}`, false);
+  kintone.app.record.setFieldShown(`その他の場合はアクセス方式を記載ください${SystemCount}`, false);
   kintone.app.record.setFieldShown(`監視環境${SystemCount}`, false);
   kintone.app.record.setFieldShown(`監視ツール${SystemCount}`, false);
 
-  kintone.app.record.setFieldShown(
-    `その他の場合はツール名を記載ください${SystemCount}`,
-    false
-  );
-  kintone.app.record.setFieldShown(
-    `BacklogプロジェクトID${SystemCount}`,
-    false
-  );
+  kintone.app.record.setFieldShown(`その他の場合はツール名を記載ください${SystemCount}`, false);
+  kintone.app.record.setFieldShown(`BacklogプロジェクトID${SystemCount}`, false);
   kintone.app.record.setFieldShown(`EC2${SystemCount}`, false);
-  kintone.app.record.setFieldShown(
-    `Newrelic_Datadogエージェント導入有無${SystemCount}`,
-    false
-  );
+  kintone.app.record.setFieldShown(`Newrelic_Datadogエージェント導入有無${SystemCount}`, false);
   kintone.app.record.setFieldShown(`導入担当${SystemCount}`, false);
 
   kintone.app.record.setFieldShown(`アプリログ${SystemCount}`, false);
-  kintone.app.record.setFieldShown(`ECSのログ転送方式${SystemCount}`, false);
-  kintone.app.record.setFieldShown(
-    `アプリログへの出力形式${SystemCount}`,
-    false
-  );
+  kintone.app.record.setFieldShown(`CloudWatchLogsへ転送しますか${SystemCount}`, false);
+  kintone.app.record.setFieldShown(`アプリログへの出力形式${SystemCount}`, false);
 
   record[`システム名${SystemCount}`].value = "";
   record[`インフラ環境${SystemCount}`].value = "---";
@@ -959,7 +887,7 @@ function SystemCountShownFalse(SystemCount, event) {
   record[`導入担当${SystemCount}`].value = "---";
 
   record[`アプリログ${SystemCount}`].value = "---";
-  record[`ECSのログ転送方式${SystemCount}`].value = "";
+  record[`CloudWatchLogsへ転送しますか${SystemCount}`].value = "";
   record[`アプリログへの出力形式${SystemCount}`].value = "---";
 
   return event;
@@ -974,16 +902,10 @@ function SystemCountShownTrue(SystemCount, event) {
   kintone.app.record.setFieldShown(`検証アカウントID${SystemCount}`, true);
   kintone.app.record.setFieldShown(`号口アカウントID${SystemCount}`, true);
   kintone.app.record.setFieldShown(`仕向け${SystemCount}`, true);
-  kintone.app.record.setFieldShown(
-    `検証環境がない場合理由を記載ください${SystemCount}`,
-    true
-  );
+  kintone.app.record.setFieldShown(`検証環境がない場合理由を記載ください${SystemCount}`, true);
 
   kintone.app.record.setFieldShown(`インフラの実装方式${SystemCount}`, true);
-  kintone.app.record.setFieldShown(
-    `外部からのアクセス方式${SystemCount}`,
-    true
-  );
+  kintone.app.record.setFieldShown(`外部からのアクセス方式${SystemCount}`, true);
 
   kintone.app.record.setFieldShown(`監視環境${SystemCount}`, true);
   kintone.app.record.setFieldShown(`監視ツール${SystemCount}`, true);
