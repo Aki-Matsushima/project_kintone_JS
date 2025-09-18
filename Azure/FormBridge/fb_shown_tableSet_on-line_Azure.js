@@ -160,7 +160,7 @@ formBridge.events.on('form.show', function (context) {
             return !shownFields.has(fieldCode);
         });
 
-        if (shownFields === "") {
+        if (!shownFields || shownFields.size === 0) {
             formHiddenFields(allHiddenFields);
         } else {
             formHiddenFields(toHide);
@@ -514,22 +514,51 @@ formBridge.events.on('form.field.change.検証アカウントID3', toggleInputVi
     関数
 ------------------------------------------------------*/
 
+
+
+/* 値取得のヘルパー（input/textarea/select 内包にも対応） */
+function getFieldValue(fieldElem) {
+    // 直接 input/textarea/select の場合
+    if (fieldElem.matches?.('input, textarea, select')) {
+        if (fieldElem.type === 'checkbox' || fieldElem.type === 'radio') {
+            return fieldElem.checked ? (fieldElem.value ?? 'on') : '';
+        }
+        return fieldElem.value ?? '';
+    }
+    // 内部に入力要素がある場合
+    const inner = fieldElem.querySelector?.('input, textarea, select');
+    if (inner) {
+        if (inner.type === 'checkbox' || inner.type === 'radio') {
+            return inner.checked ? (inner.value ?? 'on') : '';
+        }
+        return inner.value ?? '';
+    }
+    // 最後の手段としてテキスト
+    return (fieldElem.textContent ?? '').trim();
+}
+
+
 /*----フィールドを非表示にする---------*/
+// 値が「空」のときだけ隠す（= 値が入っていたら隠さない）
 function formHiddenFields(fieldCodes) {
     fieldCodes.forEach(fieldCode => {
-
-        // フィールドコードに対応する要素を取得
         const fieldElem = document.querySelector(`[data-field-code="${fieldCode}"]`);
         if (!fieldElem) return;
 
+        const value = getFieldValue(fieldElem);
+
+        // 値が入っている場合は非表示にしない（早期リターン）
+        if (value.trim() !== "") return;
+
         const parentDiv = fieldElem.closest('.w-full');
-        if (parentDiv) parentDiv.classList.add('hidden');
-
-        shownFields.delete(fieldCode);
-        hiddenFields.add(fieldCode);
-
+        if (parentDiv) {
+            parentDiv.classList.add('hidden');
+            shownFields?.delete?.(fieldCode);
+            hiddenFields?.add?.(fieldCode);
+        }
     });
 }
+
 
 /*----フィールドを表示する----------------*/
 function formShowFields(fieldCodes) {
@@ -540,11 +569,10 @@ function formShowFields(fieldCodes) {
         const parentDiv = fieldElem.closest('.w-full');
         if (parentDiv) parentDiv.classList.remove('hidden');
 
-        shownFields.add(fieldCode);
-        hiddenFields.delete(fieldCode);
+        shownFields?.add?.(fieldCode);
+        hiddenFields?.delete?.(fieldCode);
     });
 }
-
 
 /*----フィールドを編集不可にする--------------------------
     formShowDisabled({
