@@ -698,37 +698,6 @@ formBridge.events.on('form.field.change.検証アカウントID3', toggleInputVi
     関数
 ------------------------------------------------------*/
 
-// /*----フィールドを非表示にする---------*/
-// function formHiddenFields(fieldCodes) {
-//     fieldCodes.forEach(fieldCode => {
-
-//         // フィールドコードに対応する要素を取得
-//         const fieldElem = document.querySelector(`[data-field-code="${fieldCode}"]`);
-//         if (!fieldElem) return;
-
-//         const parentDiv = fieldElem.closest('.w-full');
-//         if (parentDiv) parentDiv.classList.add('hidden');
-
-//         shownFields.delete(fieldCode);
-//         hiddenFields.add(fieldCode);
-
-//     });
-// }
-
-// /*----フィールドを表示する----------------*/
-// function formShowFields(fieldCodes) {
-//     fieldCodes.forEach(fieldCode => {
-//         const fieldElem = document.querySelector(`[data-field-code="${fieldCode}"]`);
-//         if (!fieldElem) return;
-
-//         const parentDiv = fieldElem.closest('.w-full');
-//         if (parentDiv) parentDiv.classList.remove('hidden');
-
-//         shownFields.add(fieldCode);
-//         hiddenFields.delete(fieldCode);
-//     });
-// }
-
 
 /* 値取得のヘルパー（input/textarea/select 内包にも対応） */
 function getFieldValue(fieldElem) {
