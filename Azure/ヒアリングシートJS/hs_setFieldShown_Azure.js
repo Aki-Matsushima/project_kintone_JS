@@ -240,12 +240,12 @@
       //ApplicationInsights導入有無が有の場合はApplicationInsightsの個数を表示させる
       if (record.ApplicationInsights導入有無1.value === "有") {
         kintone.app.record.setFieldShown(
-          "ApplicationInsights導入有無1",
+          "ApplicationInsightsの個数1",
           true
         );
       } else {
         kintone.app.record.setFieldShown(
-          "ApplicationInsights導入有無1",
+          "ApplicationInsightsの個数1",
           false
         );
         record.ApplicationInsightsの個数1.value = 0;
@@ -336,14 +336,14 @@
       const record = event.record;
 
       //ApplicationInsights導入有無が有の場合はApplicationInsightsの個数を表示させる
-      if (record.ApplicationInsights導入有無1.value === "有") {
+      if (record.ApplicationInsights導入有無2.value === "有") {
         kintone.app.record.setFieldShown(
-          "ApplicationInsights導入有無2",
+          "ApplicationInsightsの個数2",
           true
         );
       } else {
         kintone.app.record.setFieldShown(
-          "ApplicationInsights導入有無2",
+          "ApplicationInsightsの個数2",
           false
         );
         record.ApplicationInsightsの個数2.value = 0;
@@ -433,12 +433,12 @@
       //ApplicationInsights導入有無が有の場合はApplicationInsightsの個数を表示させる
       if (record.ApplicationInsights導入有無3.value === "有") {
         kintone.app.record.setFieldShown(
-          "ApplicationInsights導入有無3",
+          "ApplicationInsightsの個数3",
           true
         );
       } else {
         kintone.app.record.setFieldShown(
-          "ApplicationInsights導入有無3",
+          "ApplicationInsightsの個数3",
           false
         );
         record.ApplicationInsightsの個数3.value = 0;
