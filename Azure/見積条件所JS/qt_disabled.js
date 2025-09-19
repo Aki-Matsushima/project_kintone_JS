@@ -1,19 +1,4 @@
 //新規追加画面、編集画面を開いたときに編集不可にしたいフィールドコード一覧
-const disabledFields = ["運用基盤構築1", "運用基盤構築2", "運用基盤構築3"];
-
-kintone.events.on(
-  ["app.record.create.show", "app.record.edit.show"],
-  function (event) {
-    const record = event.record;
-
-    //for文でdisabledに設定したフィールドを編集不可に
-    for (let i = 0; i < disabledFields.length; i++) {
-      ShowDisabled(record, disabledFields[i], true);
-    }
-
-    return event;
-  }
-);
 
 kintone.events.on(
   [
@@ -32,9 +17,7 @@ kintone.events.on(
     "app.record.create.change.設計_緊急連絡体制図",
     "app.record.edit.change.設計_緊急連絡体制図",
     "app.record.create.change.設計_サービス正常性確認手順",
-    "app.record.edit.change.設計_サービス正常性確認手順",
-    "app.record.create.change.設計_クラウドメンテナンス設計",
-    "app.record.edit.change.設計_クラウドメンテナンス設計",
+    "app.record.edit.change.設計_サービス正常性確認手順"
   ],
   function (event) {
     const record = event.record;
@@ -63,14 +46,6 @@ kintone.events.on(
       ShowDisabled(record, "インシデント管理設計に係る情報提供期限", true);
     } else {
       ShowDisabled(record, "インシデント管理設計に係る情報提供期限", false);
-    }
-
-    //定常運用設計のドキュメントがひとつもない場合、情報提供期限を入力不可(値クリアも行う)
-    if (record.設計_クラウドメンテナンス設計.value.length === 0) {
-      record.定常運用設計に係る情報提供期限.value = "";
-      ShowDisabled(record, "定常運用設計に係る情報提供期限", true);
-    } else {
-      ShowDisabled(record, "定常運用設計に係る情報提供期限", false);
     }
 
     return event;
