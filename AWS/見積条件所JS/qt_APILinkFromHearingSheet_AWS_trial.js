@@ -30,7 +30,7 @@
         try {
           const record = kintone.app.record.get().record;
 
-          const APP_ID = 96; //ヒアリングシートアプリのアプリID
+          const APP_ID = 118; //ヒアリングシートアプリのアプリID
           const RECORD_ID = record.ヒアリングシート選択.value;
 
           const body = {
@@ -155,7 +155,7 @@
           TableDelete(record, "カスタム監視");
           TableDelete(record, "ログ監視");
 
-          const APP_ID = 96; //ヒアリングシートアプリのアプリID
+          const APP_ID = 118; //ヒアリングシートアプリのアプリID
           const RECORD_ID = record.ヒアリングシート選択.value;
 
           const body = {
@@ -193,6 +193,10 @@
     }
   );
 })();
+
+/*------------------------------------------------------
+    関数
+------------------------------------------------------*/
 
 //ヒアリングシートのアウトプットが有だったら、設計のチェックボックスを入れる関数
 function OutputCheckBox(respRecord, record, documentName) {
