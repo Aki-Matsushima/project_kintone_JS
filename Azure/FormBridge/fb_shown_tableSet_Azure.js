@@ -274,8 +274,8 @@ const conditionalFieldMaps = {
             "外部からのアクセス方式1",
             "監視環境1",
             "ApplicationInsights導入有無1",
-            "ApplicationInsightsの個数1",
-            "indentApplicationInsightsの個数1",
+            // "ApplicationInsightsの個数1",
+            // "indentApplicationInsightsの個数1",
         ],
         '2': [
             "システム名1",
@@ -288,8 +288,8 @@ const conditionalFieldMaps = {
             "外部からのアクセス方式1",
             "監視環境1",
             "ApplicationInsights導入有無1",
-            "ApplicationInsightsの個数1",
-            "indentApplicationInsightsの個数1",
+            // "ApplicationInsightsの個数1",
+            // "indentApplicationInsightsの個数1",
 
             "システム名2",
             "インフラ環境2",
@@ -301,8 +301,8 @@ const conditionalFieldMaps = {
             "外部からのアクセス方式2",
             "監視環境2",
             "ApplicationInsights導入有無2",
-            "ApplicationInsightsの個数2",
-            "indentApplicationInsightsの個数2",
+            // "ApplicationInsightsの個数2",
+            // "indentApplicationInsightsの個数2",
         ],
         '3': [
             "システム名1",
@@ -315,8 +315,8 @@ const conditionalFieldMaps = {
             "外部からのアクセス方式1",
             "監視環境1",
             "ApplicationInsights導入有無1",
-            "ApplicationInsightsの個数1",
-            "indentApplicationInsightsの個数1",
+            // "ApplicationInsightsの個数1",
+            // "indentApplicationInsightsの個数1",
 
             "システム名2",
             "インフラ環境2",
@@ -328,8 +328,8 @@ const conditionalFieldMaps = {
             "外部からのアクセス方式2",
             "監視環境2",
             "ApplicationInsights導入有無2",
-            "ApplicationInsightsの個数2",
-            "indentApplicationInsightsの個数2",
+            // "ApplicationInsightsの個数2",
+            // "indentApplicationInsightsの個数2",
 
             "システム名3",
             "インフラ環境3",
@@ -341,8 +341,8 @@ const conditionalFieldMaps = {
             "外部からのアクセス方式3",
             "監視環境3",
             "ApplicationInsights導入有無3",
-            "ApplicationInsightsの個数3",
-            "indentApplicationInsightsの個数3",
+            // "ApplicationInsightsの個数3",
+            // "indentApplicationInsightsの個数3",
         ]
     },
 
