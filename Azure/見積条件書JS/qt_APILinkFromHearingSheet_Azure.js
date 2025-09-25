@@ -353,17 +353,17 @@ function EstimatedCalc(respRecord, record, tableCode) {
     let logTotal = 0;
     if (record.ログ監視.value.length !== 0) {
       const logProdNum1 =
-        record.ログ監視.value[1].value.ログ監視_号口数量1.value;
+        record.ログ監視.value[0].value.ログ監視_号口数量1.value;
       const logProdNum2 =
-        record.ログ監視.value[1].value.ログ監視_号口数量2.value;
+        record.ログ監視.value[0].value.ログ監視_号口数量2.value;
       const logProdNum3 =
-        record.ログ監視.value[1].value.ログ監視_号口数量3.value;
+        record.ログ監視.value[0].value.ログ監視_号口数量3.value;
       const logTestNum1 =
-        record.ログ監視.value[1].value.ログ監視_検証数量1.value;
+        record.ログ監視.value[0].value.ログ監視_検証数量1.value;
       const logTestNum2 =
-        record.ログ監視.value[1].value.ログ監視_検証数量2.value;
+        record.ログ監視.value[0].value.ログ監視_検証数量2.value;
       const logTestNum3 =
-        record.ログ監視.value[1].value.ログ監視_検証数量3.value;
+        record.ログ監視.value[0].value.ログ監視_検証数量3.value;
       logTotal =
         Number(logProdNum1) +
         Number(logProdNum2) +
