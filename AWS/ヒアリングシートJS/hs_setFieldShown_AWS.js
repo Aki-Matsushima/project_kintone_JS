@@ -306,7 +306,7 @@
       } else {
         kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか1", false);
         kintone.app.record.setFieldShown("アプリログへの出力形式1", false);
-        record.CloudWatchLogsへ転送しますか1.value = "";
+        record.CloudWatchLogsへ転送しますか1.value = [];
         record.アプリログへの出力形式1.value = "---";
       }
       return event;
@@ -456,7 +456,7 @@
       } else {
         kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか2", false);
         kintone.app.record.setFieldShown("アプリログへの出力形式2", false);
-        record.CloudWatchLogsへ転送しますか2.value = "";
+        record.CloudWatchLogsへ転送しますか2.value = [];
         record.アプリログへの出力形式2.value = "---";
       }
       return event;
@@ -606,7 +606,7 @@
       } else {
         kintone.app.record.setFieldShown("CloudWatchLogsへ転送しますか3", false);
         kintone.app.record.setFieldShown("アプリログへの出力形式3", false);
-        record.CloudWatchLogsへ転送しますか3.value = "";
+        record.CloudWatchLogsへ転送しますか3.value = [];
         record.アプリログへの出力形式3.value = "---";
       }
       return event;
@@ -887,7 +887,7 @@ function SystemCountShownFalse(SystemCount, event) {
   record[`導入担当${SystemCount}`].value = "---";
 
   record[`アプリログ${SystemCount}`].value = "---";
-  record[`CloudWatchLogsへ転送しますか${SystemCount}`].value = "";
+  record[`CloudWatchLogsへ転送しますか${SystemCount}`].value = [];
   record[`アプリログへの出力形式${SystemCount}`].value = "---";
 
   return event;
