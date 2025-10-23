@@ -32,9 +32,9 @@
       kintone.app.record.setFieldShown("レポトン用_配信_テスト結果報告書作成隠し", false);
 
       //見積費用明細テーブルの項目を非表示
-      kintone.app.record.setFieldShown("見積費用明細_大項目", false);
-      kintone.app.record.setFieldShown("見積費用明細_削除フラグ", false);
-      kintone.app.record.setFieldShown("見積費用明細_ID", false);
+      // kintone.app.record.setFieldShown("見積費用明細_大項目", false);
+      // kintone.app.record.setFieldShown("見積費用明細_削除フラグ", false);
+      // kintone.app.record.setFieldShown("見積費用明細_ID", false);
 
 
       kintone.app.record.setFieldShown("レポトン用_お見積り条件_制約条件_1隠し", false);
