@@ -21,7 +21,7 @@
 
       const hiddenFieldCode = fieldCode + "隠し";
       if (!userValue || userValue.length === 0) {
-        record[hiddenFieldCode].value = '';
+        record[hiddenFieldCode].value = 'TBD';
         continue;
       }
 
