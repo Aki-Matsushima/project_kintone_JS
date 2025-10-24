@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>回答完了 | Toyota Connected Corporation</title>
+  <style>
+    .tcc-wrap { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif; }
+    .tcc-center { display:flex; flex-direction:column; align-items:center; text-align:center; margin:40px auto; }
+
+    .tcc-check {
+      width: 80px; height: 80px; border-radius: 50%; background: #28a745;
+      display:flex; align-items:center; justify-content:center; margin: 0 auto 16px;
+    }
+    .tcc-check svg { width: 40px; height: 40px; color:#fff; }
+
+    .tcc-card {
+      max-width: 680px; padding: 20px 18px; box-sizing: border-box;
+      border:1px solid #e0ecff; border-radius: 12px; background:#f8faff; text-align:center;
+    }
+    .tcc-title { font-size:20px; color:#002c5f; margin:8px 0 10px; font-weight:700; }
+    .tcc-text { font-size:14px; line-height:1.8; color:#333; margin:0 0 20px; }
+    .tcc-meta { font-size:12px; color:#64748b; margin-top:8px; }
+
+    /* kintone UI Component風 Button（大きめサイズ） */
+    .kuc-btn { 
+      --kuc-submit-bg: #3498db;
+      --kuc-submit-bg-hover: #258cd1;
+      --kuc-submit-border: #2f86c8;
+      --kuc-text:#fff;
+
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      min-height: 48px; padding: 0 28px; border-radius: 8px;
+      border:1px solid var(--kuc-submit-border); background: var(--kuc-submit-bg);
+      color: var(--kuc-text); font-weight:700; font-size:16px; text-decoration:none; cursor:pointer;
+      box-shadow: inset 0 -1px rgba(0,0,0,0.08);
+      transition: background .15s ease, transform .06s ease, box-shadow .06s ease;
+    }
+    .kuc-btn:hover { background: var(--kuc-submit-bg-hover); }
+    .kuc-btn:active { transform: translateY(1px); box-shadow: inset 0 0 rgba(0,0,0,0.12); }
+    .kuc-btn:focus-visible { outline: 3px solid #91c9ff; outline-offset: 2px; }
+    .kuc-btn[disabled] { opacity:.6; cursor:not-allowed; }
+
+    .kuc-btn svg { width:18px; height:18px; }
+
+    .tcc-link { display:block; margin-top:10px; font-size:12px; color:#0b6fb8; text-decoration:underline; word-break:break-all; }
+  </style>
+</head>
+<body>
+  <div class="tcc-wrap">
+    <section class="tcc-center" aria-label="回答完了のお知らせ">
+      <div class="tcc-check" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+      </div>
+      <h1 class="tcc-title"><strong>回答が完了しました</strong></h1>
+      <p class="tcc-text">内容確認メールを送信しました。<br>届かない場合は、迷惑メールフォルダをご確認ください。</p>
+
+      <div class="tcc-card" role="region" aria-label="フィードバックのお願い">
+        <h2 class="tcc-title" style="margin-top:0"><strong>ご意見・ご感想をお聞かせください</strong></h2>
+        <p class="tcc-text" style="margin-top:6px">今回のご利用で感じた「良かった点」や「改善してほしい点」をお寄せください。<br>皆さまの声をもとに、より使いやすい仕組みをつくっていきます。</p>
+        <a class="kuc-btn" href="https://ab5c0cce.form.kintoneapp.com/public/e048fcd636cb83c80e35d2ab7e693f7cf8c13fe2662c6210ef07956cdafa8c14" target="_blank" rel="noopener" aria-label="フィードバックフォームを開く">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+          フィードバックを送る
+        </a>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
